@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="controlador">
+  <div >
     <h2>Atualizador do gráfico Individual</h2>
     <form>
       <label for="data1">Meta Bia:</label>
@@ -30,34 +31,70 @@
       <button type="button" @click="updateChart">Atualizar</button>
     </form>
 
-    <h2>Atualizador do gráfico Coletivo</h2>
-    <form>
-      <label for="data13">Travados:</label>
-      <input type="number" id="data13" v-model="data11">
-      <label for="data14">Destravados:</label>
-      <input type="number" id="data14" v-model="data12">
-      <label for="data15">Clientes em Onboarding:</label>
+    <h2>Atualizador Semanal</h2> 
+    <form> 
+      <label style="font-weight: bold"> Travados </label> <br>
+      <label for="data13">Semana A:</label>
       <input type="number" id="data13" v-model="data13">
-      <label for="data14">Clientes sem próximos passos:</label>
+      <label for="data14">Semana B</label>
       <input type="number" id="data14" v-model="data14">
+      <label for="data15">Semana C:</label>
+      <input type="number" id="data15" v-model="data15">
+      <label for="data16">Semana D:</label>
+      <input type="number" id="data16" v-model="data16">
+      <label for="data17">Semana E:</label>
+      <input type="number" id="data17" v-model="data17">
+      <label for="data18"> Semana F: </label>
+      <input type="number" id="data18" v-model="data18">
+      <br><br>
+      <label style="font-weight: bold"> Destravados </label> <br>
+      <label for="data19">Semana A:</label>
+      <input type="number" id="data19" v-model="data19">
+      <label for="data20">Semana B</label>
+      <input type="number" id="data20" v-model="data20">
+      <label for="data21">Semana C:</label>
+      <input type="number" id="data21" v-model="data21">
+      <label for="data22">Semana D:</label>
+      <input type="number" id="data22" v-model="data22">
+      <label for="data23">Semana E:</label>
+      <input type="number" id="data23" v-model="data23">
+      <label for="data24"> Semana F: </label>
+      <input type="number" id="data24" v-model="data24">
+      <br><br>
+      <label style="font-weight: bold"> Em Onboarding </label> <br>
+      <label for="data25">Semana A:</label>
+      <input type="number" id="data25" v-model="data25">
+      <label for="data26">Semana B</label>
+      <input type="number" id="data26" v-model="data26">
+      <label for="data27">Semana C:</label>
+      <input type="number" id="data27" v-model="data27">
+      <label for="data28">Semana D:</label>
+      <input type="number" id="data28" v-model="data28">
+      <label for="data29">Semana E:</label>
+      <input type="number" id="data29" v-model="data29">
+      <label for="data30"> Semana F: </label>
+      <input type="number" id="data30" v-model="data30">
+
 
       <button type="button" @click="updateChartColetivo">Atualizar</button>
     </form>
 
-    <h2>Atualizador do gráfico Coletivo2</h2>
+    <h2>Atualizador do Gráfico Geral</h2>
     <form>
-      <label for="data17">Meta1:</label>
-      <input type="number" id="data17" v-model="data17">
-      <label for="data18"> Meta2: </label>
-      <input type="number" id="data18" v-model="data18">
-      <label for="data19"> Meta 3:</label>
-      <input type="number" id="data19" v-model="data19">
-      <label for="data20"> Meta4: </label>
-      <input type="number" id="data20" v-model="data20">
-
+   
+      <label for="data31"> Travados: </label>
+      <input type="number" id="data31" v-model="data31">
+      <label for="data32"> GoLive Marcado:</label>
+      <input type="number" id="data32" v-model="data32"><br>
+      <label for="data34">Em Onboarding:  </label>
+      <input type="number" id="data33" v-model="data33">
+      <label for="data35"> Desaparecidos: </label>
+      <input type="number" id="data34" v-model="data34">
       <button type="button" @click="updateChartColetivo2">Atualizar</button>
     </form>
   </div>
+
+</div>
 </template>
 
 <script>
@@ -85,7 +122,23 @@ export default {
       data17: 0,
       data18: 0,
       data19:0,
-      data20:0
+      data20:0,
+      data21:0,
+      data22:0,
+      data23:0,
+      data24:0,
+      data25:0,
+      data26:0,
+      data27:0,
+      data28:0,
+      data29:0,
+      data30:0,
+      data31:0,
+      data32:0,
+      data33:0,
+      data34:0,
+   
+     
     }
   },
   methods: {
@@ -112,16 +165,51 @@ export default {
         data14: this.data14,
         data15: this.data15,
         data16: this.data16,
-      });
-    },
-    updateChartColetivo2() {
-      this.$emit('update-chart-coletivo2', {
         data17: this.data17,
         data18: this.data18,
         data19: this.data19,
         data20: this.data20,
+        data21: this.data21,
+        data22: this.data22,
+        data23: this.data23,
+        data24: this.data24,
+        data25: this.data25,
+        data26: this.data26,
+        data27: this.data27,
+        data28: this.data28,
+        data29: this.data29,
+        data30: this.data30,
+        
+        
+
+      });
+    },
+    updateChartColetivo2() {
+      this.$emit('update-chart-coletivo2', {
+      
+        data31: this.data31,
+        data32: this.data32,
+        data33: this.data33,
+        data34: this.data34,
+        
       });
     },
   },
 };
 </script>
+
+
+<style>
+
+.controlador {
+
+  display: flex;
+  flex-direction: column;
+  border-width: 5px;
+  border-spacing: ;
+  border-style: solid;
+  border-color: rgb(0, 106, 255);
+  
+}
+
+</style>

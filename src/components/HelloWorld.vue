@@ -1,41 +1,63 @@
 <template>
-  <div>
-    <div>
-      <div class="chart">
-        <div class="wrapper">
-          <div class="sidebar">
-            <!-- conteúdo da barra lateral -->
-          </div>
-          <div class="main-content">
-            <!-- conteúdo principal -->
-          </div>
-        </div>
-        <canvas id="myChart"></canvas>
-      </div>
-    </div>
 
-    <div>
-      <div class="grafico1">
-        <canvas id="myChart2"></canvas>
+    <nav class="navbar">
+      <span> <h1> Onboarding Enterprise </h1></span>
+
+     
+  
+                  
+     </nav>
+  <div> 
+    <div class="wrapper"> 
+    <div >     
+          <div class="main-content">
+           
+            <h1> Metas Individuais (semana atual)</h1>
+            <br><br><br><br><br>
+            <br><br>
+                
+        
       </div>
+      <div style="width: 700px; height: 700px;" > 
+      <canvas id="myChart"></canvas>
+    </div>
+    </div>
+  
+    <div style="width: 600px; height: 600px;">
+      <h1> Metas Semanais </h1> 
+      <br><br>
+      <br><br>
+
+     <canvas id="myChart2"></canvas>
+     
 
       <h1 class="h12">Destravamentos - Ativados - Travados - Desaparecidos</h1>
-      <div>
+      <div style="width: 700px; height: 700px;">
         <canvas id="myChart3"></canvas>
       </div>
     </div>
 
-    <div>
-      <div class="sidebar">
+    
+       
+    
+  </div>    
+
+    </div>
+
+    
+    <div id="sidebar" class="sidebar">
         <Sidebar @update-chart-individual="updateChartIndividual" @update-chart-coletivo="updateChartColetivo" @update-chart-coletivo2="updateChartColetivo2"></Sidebar>
       </div>
-      <div class="chart">
-        <canvas id="myChart"></canvas>
-      </div>
-      <br>
-      <h1>Essas são as metas individuais de destravamentos no Onboarding Enterprise</h1>
-    </div>
-  </div>
+
+
+    <footer>  
+
+
+      <h1>  APAIXONADOS POR DADOS </h1>
+      
+      <h3> Versão 1.0</h3>
+    </footer>
+    
 </template>
 
 <script>
@@ -80,6 +102,7 @@ export default {
         options: {
           layout: {
             padding: 90,
+            
           },
           scales: {
             y: {
@@ -92,11 +115,11 @@ export default {
       this.chart2 = new Chart(ctx2, {
         type: 'line',
         data: {
-          labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+          labels: ['Semana A', 'Semana B ', 'Semana C', 'Semana D', 'Semana E', 'Semana F'],
           datasets: [
             {
               label: 'Travados',
-              data: [12, 19, 3, 5, 2, 3],
+              data: [5, 8, 5, 5, 7, 4],
               fill: 'origin',
             },
             {
@@ -106,12 +129,12 @@ export default {
             },
             {
               label: 'Em Onboarding',
-              data: [1, 5, 2, 5, 2, 5],
+              data: [1, 5, 2, 12, 2, 5],
               fill: 1,
             },
             {
               label: 'Sem próximos passos',
-              data: [4, 6, 1, 4, 2, 7],
+              data: [4, 6, 10, 4, 2, 7],
               fill: false,
             },
           ],
@@ -120,6 +143,7 @@ export default {
           scales: {
             y: {
               beginAtZero: true,
+              max:70
             },
           },
         },
@@ -135,7 +159,7 @@ export default {
       this.chart3 = new Chart(ctx3, {
               type: 'doughnut',
               data: {
-                labels: ['Travados', 'Destravados', 'Em Onboarding', 'Sem próximos passos'],
+                labels: ['Travados', 'Go Live Marcado', 'Em Onboarding', 'Sem próximos passos'],
                 datasets: [
                   {
                     label: 'Quantidade',
@@ -154,6 +178,9 @@ export default {
                     position: 'right', // Posição da legenda (pode ser 'top', 'bottom', 'left', 'right')
                   },
                 },
+                width:100,
+                height:200,
+
               },
             });
         
@@ -185,15 +212,39 @@ export default {
         data.data14,
         data.data15,
         data.data16,
+        data.data17,
+        data.data18,
+       
+        ];
+        this.chart2.data.datasets[1].data = [
+        data.data19,
+        data.data20,
+        data.data21,
+        data.data22,
+        data.data23,
+        data.data24,
+        
+        ];
+        this.chart2.data.datasets[2].data = [
+        data.data25,
+        data.data26,
+        data.data27,
+        data.data28,
+        data.data29,
+        data.data30,
+       
+       
+
       ];
       this.chart2.update();
     },
     updateChartColetivo2(data) {
       this.chart3.data.datasets[0].data = [
-        data.data17,
-        data.data18,
-        data.data19,
-        data.data20,
+        data.data31,
+        data.data32,
+        data.data33,
+        data.data34,
+      
       ];
      
       
@@ -205,24 +256,194 @@ export default {
 </script>
 
 <style >
+body {
+
+ 
+}
+.navbar {
+      height: 30px;
+      width: 1650px;
+      padding: 15px 10px;
+      background: #7386D5;
+      border: none;
+      border-radius:10px;
+      margin-bottom: 40px;
+      margin-left: -9px;
+      box-shadow: 15px 10px 10px rgba(27, 25, 25, 0.2); 
+      cursor: pointer;
+  }
+  
+  .navbar-btn {
+      box-shadow: none;
+      outline: none !important;
+      border: none;
+  }
+  .navbar-toggler {
+    border-bottom: 1px solid #47748b;
+   
+   
 
 
+  }
+  
+.navbar h1 {
+
+      height: 50px;
+      margin-top: 0px;
+      margin-left: 1020px;
+      text-shadow: inset -1px -1px -1px rgba(0,0,0,5);
+      color: rgba(0,0,0, 0.3);
+
+
+        
+
+      }
+
+ 
+  
+.wrapper {
+  display: flex;
+  flex-direction: row;
+
+  height: 1850px;
+  margin-left: 200px;
+
+
+
+
+}
+
+#sidebar {
+      min-width: 210px;
+      max-width: 210px;
+      background: #7386D5;
+      color: #fff;
+      transition: all 0.3s;
+      margin-top: -932px;
+      margin-left: -5px;
+      cursor: pointer;
+      box-shadow: 5px 5px 5px rgba(27, 25, 25, 0.2); /* Adapte os valores de acordo com o efeito desejado */
+    
+
+  }
+  
+  #sidebar.active {
+      margin-left: -250px;
+  }
+  
+  #sidebar .sidebar-header {
+      padding: 20px;
+      background: #6d7fcc;
+     
+      ;
+       }
+  
+  #sidebar ul.components {
+      padding: 20px 0;
+      border-bottom: 1px solid #47748b;
+    
+  }
+  
+
+
+  #sidebar ul p {
+      color: #fff;
+      padding: 10px;
+  }
+  
+  #sidebar ul li a {
+      padding: 10px;
+      font-size: 1.1em;
+      display: block;
+  }
+  
+  #sidebar ul li a:hover {
+      color: #7386D5;
+      background: #fff;
+  }
+
+
+footer h1 {
+
+
+  margin-left: 50px;
+  margin-top:70px;
+  margin-bottom:70px;
+  padding: 20px;
+  
+
+
+  }
+
+footer h3 {
+
+
+margin-left: 1200px;
+margin-top:-100px;
+
+
+
+
+}
+
+header h1 {
+
+
+  margin-left: 40px;
+  padding-bottom: 50px
+
+
+}
+
+#myChart {
+
+  
+  width: 500px;
+  margin-left: 50px ;
+
+}
+#myChart2{
+
+  
+width: 500px;
+margin-left: -50px ;
+
+}
+
+.container {
+  
+  display: flex;
+  flex-direction: row;
+
+}
+
+
+#myChart3 {
+
+  width: 20px;
+  height: 10px;
+
+}
 
 .wrapper {
   display: flex;
   height: 100%;
+  
 }
 
 .sidebar {
-  margin:0;
+  display: flex;
+  flex-direction:column;
+  margin-left: 50px;
+  margin-top: 500px;
   width: 200px;
   background-color: #ccc;
   padding: 20px;
 }
 
 .main-content {
-  flex: 1;
-  background-color: #fff;
+ 
+  
   padding: 20px;
 }
 
@@ -237,10 +458,9 @@ body {
 
 img {
 
-  margin-left: 50px;
-  margin-right: -50px;
-  margin-top: 30px
-  wi
+ width: 1500px;
+ height: 250px;
+
   
 }
 
@@ -251,7 +471,7 @@ h1 {
   margin-bottom:-50px;
   padding-bottom: - 70px;
 
-  color:rgb(222, 222, 35);
+  color:rgb(35, 85, 222);
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -262,7 +482,7 @@ margin-left: -80px ;
 margin-top:40px;
 margin-bottom:-50px;
 padding-bottom: - 70px;
-color:rgb(222, 222, 35);
+color:rgb(35, 85, 222);
 
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -276,6 +496,7 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
 canvas {
 
   width: 100px;
+  
 }
 
 .imgs {
